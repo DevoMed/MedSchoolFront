@@ -41,9 +41,11 @@ export class DetailsStudentComponent implements OnInit {
    this.studentservice.StudentToSubject(id1,id2,student).subscribe(data=>{
       alert("The subject has been successfully added")
       window.location.reload();
-      
-    
   })
+}
+
+back(){
+  this.router.navigate(["./students/list"])
 }
 
 }

@@ -7,6 +7,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RootComponent } from './home/root/root.component';
 
 
 
@@ -14,7 +15,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    RootComponent
 
   ],
   imports: [
@@ -22,7 +24,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

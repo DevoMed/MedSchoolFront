@@ -1,3 +1,8 @@
-.a{
-    color: aliceblue;
+a{
+    color: white;
+    text-decoration: none;
+}
+.container-fluid{
+    margin: auto;
+
 }

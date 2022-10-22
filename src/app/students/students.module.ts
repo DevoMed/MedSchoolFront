@@ -15,20 +15,24 @@ import { SubjectService } from '../services/subject.service';
 
 
 
+
 @NgModule({
   declarations: [
     AddComponent,
     ListComponent,
     EditComponent,
     HomeComponent,
-    DetailsStudentComponent
+    DetailsStudentComponent,
+   
 
   ],
   imports: [
     CommonModule,
     StudentsRoutingModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    
+    
   ],
   exports: [
     
