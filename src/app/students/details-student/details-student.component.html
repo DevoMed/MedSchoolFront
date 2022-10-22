@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Student</h3> {{student.firstName}} {{student.lastName}} 
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>DNI</th>
+                    <th>BIRTHDAY DATE</th>
+                    <th>STATUS</th>
+                    <th>CREATION DATE</th>
+                    <th>MODIFICATION DATE</th>
+                </tr>
+            </thead>
+            <Tbody>
+                <tr class="text-center">
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.dni}}</td>
+                    <td>{{student.birthdayDate}}</td>
+                    <td>{{student.active}}</td>
+                    <td>{{student.creationDate}}</td>
+                    <td>{{student.modificationDate}}</td>                       
+                </tr>
+            </Tbody>
+        </table>
+           
+                <div class="form-inline">
+                    <label for="">Subjects list:</label>
+                    <select class="form-control" autofocus [(ngModel)]="selectsubj" name="selectsubj.id">
+                        <option value="sub.id" [ngValue]="sub" *ngFor="let sub of subject">
+                            {{sub.subjectName}}
+                        </option>
+                    </select>
+                    <button (click)="add(student)" type="button" class="btn btn-primary">Add</button>
+                </div>        
+           
+            <hr>
+        <div>
+            <h5>List of subjects in which the student
+                 {{student.firstName}} {{student.lastName}} is enrolled</h5>
+        </div>
+        <hr>
+        <div ><ul *ngFor="let sub of student.subjects"  >
+            <li>{{sub.subjectName}}</li>  
+        </ul>
+        </div>
+
+    </div>
+</div>
+
+     
+       

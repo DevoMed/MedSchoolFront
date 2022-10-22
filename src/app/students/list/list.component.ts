@@ -10,7 +10,9 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class ListComponent implements OnInit {
 
-  students!: Student[];
+  filterTerm!: string;
+  students: Student[]=[];
+
 
 
   constructor(private studentservice:StudentService, private router:Router) { }
@@ -27,6 +29,11 @@ export class ListComponent implements OnInit {
     this.router.navigate(["./students/edit"]);
   }
 
+  details(student:Student):void{
+    localStorage.setItem("id",student.id);
+    this.router.navigate(["./students/details"]);
+  }
+
   delete(student:Student){
     this.studentservice.deleteStudent(student)
     .subscribe(data=>{
@@ -35,7 +42,5 @@ export class ListComponent implements OnInit {
       this.router.navigate(["./students/list"]);
     })
   }
-  
-
 
 }

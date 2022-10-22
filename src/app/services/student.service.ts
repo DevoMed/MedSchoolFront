@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Student } from '../interfaces/interfaces';
+import { Subject } from '../interfaces/Subject.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ export class StudentService {
   constructor( private http:HttpClient) { }
 
  private baseUrl: string = environment.baseUrl;
- 
+
 
   getStudents():Observable<Student[]> {
-    return this.http.get<Student[]>(`${this.baseUrl}students/get`)  
+    return this.http.get<Student[]>(`${this.baseUrl}students/get`)
   }
   getStudentId(id: string | null): Observable<Student> {
     return this.http.get<Student>(`${this.baseUrl}students/${id}`)
@@ -30,6 +31,7 @@ export class StudentService {
   deleteStudent(student: Student): Observable<Student> {
     return this.http.delete<Student>(`${this.baseUrl}students/inactive/${student.id}`);
   }
-
-
+  StudentToSubject(id1:string, id2:string, student: Student): Observable<Student> {
+    return this.http.put<Student>(`${this.baseUrl}students/${id1}/student/${id2}`,student);
+  }
 }

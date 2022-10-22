@@ -7,6 +7,12 @@ import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { StudentService } from '../services/student.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DetailsStudentComponent } from './details-student/details-student.component';
+import { SubjectService } from '../services/subject.service';
+
+
+
 
 
 @NgModule({
@@ -14,16 +20,20 @@ import { StudentService } from '../services/student.service';
     AddComponent,
     ListComponent,
     EditComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsStudentComponent
+
   ],
   imports: [
     CommonModule,
     StudentsRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   exports: [
     
   ],
-  providers: [StudentService],
+  providers: [StudentService,
+  SubjectService],
 })
 export class StudentsModule { }

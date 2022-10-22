@@ -1,0 +1,14 @@
+.form-group{
+    width: 80%;
+    margin: auto;
+    padding: auto;
+    font-weight: bold;
+}
+.button{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+button{
+    width: 30%;
+}

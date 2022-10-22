@@ -1,0 +1,18 @@
+label {
+    margin-right: 15px;
+    margin-left: 15px;
+    font-weight: bold;
+    }
+    
+    
+    .form-control {
+        display: inline;
+        width: 30%  
+    }
+    button{
+        margin-left: 15px;
+        width: 10%;
+    }
+    li{
+        font-size: large;
+    }

@@ -6,9 +6,9 @@ import { ErrorComponent } from './shared/error/error.component';
 const routes: Routes = [
   {
     path: '',
-  component: AppComponent
-
+    component: AppComponent
   },
+  
   {
     path: 'students',
     loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)
