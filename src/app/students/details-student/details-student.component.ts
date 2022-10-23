@@ -41,7 +41,11 @@ export class DetailsStudentComponent implements OnInit {
    this.studentservice.StudentToSubject(id1,id2,student).subscribe(data=>{
       alert("The subject has been successfully added")
       window.location.reload();
-  })
+  },
+  error => {
+    alert("You are already enrolled in this subject...!!!")
+  },
+  )
 }
 
 back(){

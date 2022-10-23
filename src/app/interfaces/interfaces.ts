@@ -26,16 +26,5 @@ export interface subjectcontent {
     subjectName: string,
     department: Departments
 }
-export interface Teacher {
 
-    id: string,
-    creationDate?: Date,
-    modificationDate?: Date,
-    active?: boolean,
-    firstName: string,
-    lastName: string,
-    dni: string,
-    departHead: boolean,
-    subjects?: [];
-}
 

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>List of all Teachers</h3>
+        </div>
+        <div>
+        <div class="card-header">
+            <div class="form-group">
+                <input type="text" class="form-control" autofocus
+                placeholder="Search By FirstName,LastName....." [(ngModel)]="filterTerm" />
+            </div>
+        </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>DNI</th>
+                        <th>BIRTHDAY DATE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <Tbody>
+                    <tr *ngFor="let teacher of teachers | filter: filterTerm" class="text-center">
+                        <td>{{teacher.firstName}}</td>
+                        <td>{{teacher.lastName}}</td>
+                        <td>{{teacher.dni}}</td>
+                        <td>{{teacher.birthdayDate}}</td>
+                        <td>
+                            <button (click)="edit(teacher)" type="button" class="btn btn-success">Edit</button>
+                            <button (click)="delete(teacher)" type="button" class="btn btn-danger">Delete</button>
+                            <button (click)="details(teacher)" type="button"
+                            class="btn btn-dark">Details/Subjects</button>
+                        </td>
+                    </tr>
+                </Tbody>
+            </table>
+        </div>
+    </div>
+</div>

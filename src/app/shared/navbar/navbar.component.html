@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a>Med School</a>
-    <a href="#">Home</a>
+    <a [routerLink]="['']">Home</a>
     <a>Med School</a>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
@@ -34,8 +34,8 @@
             Teachers
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Teachers List</a></li>
-            <li><a class="dropdown-item" href="#">Add Teacher</a></li>
+            <li><a class="dropdown-item" [routerLink]="['./teachers/tlist']">Teachers List</a></li>
+            <li><a class="dropdown-item" [routerLink]="['./teachers/tadd']">Add Teacher</a></li>
           </ul>
         </li>
       </ul>

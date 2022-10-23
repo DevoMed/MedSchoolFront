@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
 export class ListComponent implements OnInit {
 
   filterTerm!: string;
-  students: Student[]=[];
+  students: any;
 
 
 
@@ -37,10 +37,14 @@ export class ListComponent implements OnInit {
   delete(student:Student){
     this.studentservice.deleteStudent(student)
     .subscribe(data=>{
-      this.students=this.students.filter(s=>s!==student);
+      this.students=this.students.filter((s: Student)=>s!==student);
       alert("The student has been successfully deleted...!!!");
       this.router.navigate(["./students/list"]);
-    })
+    },
+    error => {
+      alert("The student is already inactive...!!!")
+    },
+    )
   }
 
 }

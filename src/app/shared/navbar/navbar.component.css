@@ -4,5 +4,9 @@ a{
 }
 .container-fluid{
     margin: auto;
-
 }
+.navbar {
+    position:fixed;
+    width: 100%;
+}
+

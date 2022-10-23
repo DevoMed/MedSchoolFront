@@ -33,7 +33,10 @@ export class AddComponent implements OnInit {
       data => {
         alert("The student has been successfully added")
         this.router.navigate(["./students/list"]);
-      }
+      },
+      error => {
+        alert("This DNI is already exists...!!!")
+      },
     )
   }
 

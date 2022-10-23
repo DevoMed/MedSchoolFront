@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Teacher</h3> {{teacher.firstName}} {{teacher.lastName}} 
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>DNI</th>
+                    <th>BIRTHDAY DATE</th>
+                    <th>STATUS</th>
+                    <th>DEPARTMENT HEAD</th>
+                    <th>CREATION DATE</th>
+                    <th>MODIFICATION DATE</th>
+                </tr>
+            </thead>
+            <Tbody>
+                <tr class="text-center">
+                    <td>{{teacher.firstName}}</td>
+                    <td>{{teacher.lastName}}</td>
+                    <td>{{teacher.dni}}</td>
+                    <td>{{teacher.birthdayDate}}</td>
+                    <td>{{teacher.active}}</td>
+                    <td>{{teacher.departHead}}</td>
+                    <td>{{teacher.creationDate}}</td>
+                    <td>{{teacher.modificationDate}}</td>                       
+                </tr>
+            </Tbody>
+        </table>
+           
+                <div class="form-inline">
+                    <label for="">Subjects list:</label>
+                    <select class="form-control" autofocus [(ngModel)]="selectsubj" name="selectsubj.id">
+                        <option value="sub.id" [ngValue]="sub" *ngFor="let sub of subject">
+                            {{sub.subjectName}}
+                        </option>
+                    </select>
+                    <button (click)="add(teacher)" type="button" class="btn btn-primary">Add</button>
+                    <button (click)="back()" type="button" class="btn btn-dark">Back to List</button>
+                </div>        
+           
+            <hr>
+        <div>
+            <h5>List of subjects taught by {{teacher.firstName}} {{teacher.lastName}} </h5>
+        </div>
+        <hr>
+        <div ><ul *ngFor="let sub of teacher.subjects"  >
+            <li>{{sub.subjectName}}</li>  
+        </ul>
+        </div>
+
+    </div>
+</div>
+
+     
+       

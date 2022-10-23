@@ -1,4 +1,5 @@
-import { Teacher } from "./interfaces";
+
+import { Teacher } from '../interfaces/Teacher.interface';
 
 export interface Subject{
     
