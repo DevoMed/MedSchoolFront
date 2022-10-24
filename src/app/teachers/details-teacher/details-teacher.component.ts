@@ -14,6 +14,7 @@ export class DetailsTeacherComponent implements OnInit {
   teacher: any
   subject: any
   selectsubj:any
+  subjtocor:any
   
 
   constructor( private teacherservice:TeacherService, private subjectservice:SubjectService, 
@@ -46,6 +47,19 @@ export class DetailsTeacherComponent implements OnInit {
     alert("You are already teach this subject...!!!")
   },
   )
+}
+
+addCor(teacher : Teacher){
+  let id1=this.subjtocor.id
+  let id2=this.teacher.id
+  this.teacherservice.CordinatorToSubject(id1,id2,teacher).subscribe(data=>{
+     alert("The subject has been successfully added")
+     window.location.reload();
+ },
+ error => {
+   alert("This subject has already a coordinator...!!!")
+ },
+ )
 }
 
 back(){

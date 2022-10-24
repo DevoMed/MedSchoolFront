@@ -6,6 +6,9 @@ label {
     td,th,button{
         text-align: center;
     }
+    .th5{
+        margin-left: 20px;
+    }
     
     
     .form-control {

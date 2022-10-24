@@ -32,4 +32,7 @@ export class TeacherService {
   TeacherToSubject(id1:string, id2:string, teacher: Teacher): Observable<Teacher> {
     return this.http.put<Teacher>(`${this.baseUrl}teachers/${id1}/teacher/${id2}`,teacher);
   }
+  CordinatorToSubject(id1:string, id2:string, teacher: Teacher): Observable<Teacher> {
+    return this.http.put<Teacher>(`${this.baseUrl}teachers/${id1}/cordinator/${id2}`,teacher);
+  }
 }
