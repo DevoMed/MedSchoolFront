@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./teachers/teachers.module').then(m => m.TeachersModule)
   },
   {
+    path: 'subjects',
+    loadChildren: () => import('./subjects/subjects.module').then(m => m.SubjectsModule)
+  },
+  {
     path: 'error',
     component: ErrorComponent
   },

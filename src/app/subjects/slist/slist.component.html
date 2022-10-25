@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>List of all Subjects</h3>
+        </div>
+        <div>
+        <div class="card-header">
+            <div class="form-group">
+                <input type="text" class="form-control" autofocus
+                placeholder="Search By SubjectName, Department....." [(ngModel)]="filterTerm" />
+            </div>
+        </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>SUBJECT NAME</th>
+                        <th>DEPARTMENT</th>
+                        <th>STATUS</th>
+                        <th>COORDINATOR</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <Tbody>
+                    <tr *ngFor="let subject of subjects | filter: filterTerm" class="text-center">
+                        <td>{{subject.subjectName}}</td>
+                        <td>{{subject.department}}</td>
+                        <td>{{subject.active}}</td>
+                        <td>{{subject.cordinator?.firstName}} {{subject.cordinator?.lastName}}</td>
+                       
+                        <td>
+                            <button (click)="edit(subject)" type="button" class="btn btn-success">Edit</button>
+                            <button (click)="delete(subject)" type="button" class="btn btn-danger">Disable</button>
+                            <button (click)="details(subject)" type="button"
+                            class="btn btn-dark">Details</button>
+                        </td>
+                    </tr>
+                </Tbody>
+            </table>
+        </div>
+    </div>
+</div>

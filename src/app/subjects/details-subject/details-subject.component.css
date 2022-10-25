@@ -3,27 +3,34 @@ label {
     margin-left: 15px;
     font-weight: bold;
     }
-    td,th,button{
+    td,th{
         text-align: center;
     }
-    .th5{
-        margin-left: 20px;
+    .btn{
+        text-align: center;
+        width: auto;
     }
-    
-    
+    h5{
+        margin-left: 10px;
+    }
     .form-control {
         display: inline;
         width: 30%  
     }
     button{
-        margin-left: 15px;
+      text-align: center;
         width: 10%;
     }
     li{
         font-size: large;
     }
-    .backbtn{
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
+    .box{
+        position: relative;
+        display: inline-block;
+        width: 50%;
+        height: 100%;   
     }
+   
+
+       
+    

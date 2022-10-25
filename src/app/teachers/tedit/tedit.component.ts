@@ -33,6 +33,8 @@ export class TeditComponent implements OnInit {
       this.teacher=data;
       alert("The teacher has been successfully updated...!!!");
       this.router.navigate(["./teachers/tlist"]);
+    },err=>{
+      console.log(err)
     })
   }
 

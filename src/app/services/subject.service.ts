@@ -17,4 +17,16 @@ export class SubjectService {
   getSubjects():Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.baseUrl}subjects/get`)  
   }
+  getSubjectId(id: string | null):Observable<Subject>{
+    return this.http.get<Subject>(`${this.baseUrl}subjects/${id}`)
+  }
+  addSubject(subject: Subject): Observable<Subject> {
+    return this.http.post<Subject>(`${this.baseUrl}subjects/add`, subject);
+  }
+  updateSubject(subject: Subject): Observable<Subject> {
+    return this.http.put<Subject>(`${this.baseUrl}subjects/update/${subject.id}`, subject);
+  }
+  deleteSubject(subject: Subject): Observable<Subject> {
+    return this.http.delete<Subject>(`${this.baseUrl}subjects/inactive/${subject.id}`);
+  }
 }

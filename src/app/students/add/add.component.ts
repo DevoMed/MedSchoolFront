@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(student: any) {
+  add(student: Student) {
     this.studentservice.addStudent(student).subscribe(
       data => {
         alert("The student has been successfully added")

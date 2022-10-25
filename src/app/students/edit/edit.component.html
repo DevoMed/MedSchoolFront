@@ -2,8 +2,9 @@
     <div class="card">
         <div class="card-header">
             <h3>Update Student </h3>
-            <h5>{{student.firstName}} {{student.lastName}}</h5>
+            <h5><span *ngIf="student">{{student.firstName}} {{student.lastName}}</span></h5>
         </div>
+        <ng-container *ngIf="student">
         <form action="">
             <div class="form-group">
                 <label for="">First Name</label>
@@ -34,6 +35,7 @@
                 <button (click)="update(student)" type="button" class="btn btn-primary">Update</button>
             </div>
         </form>
+        </ng-container>
         <div>
         </div>
     </div>

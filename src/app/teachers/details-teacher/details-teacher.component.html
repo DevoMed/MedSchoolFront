@@ -1,5 +1,6 @@
 <div class="container">
     <div class="card">
+        <ng-container *ngIf="teacher">
         <div class="card-header">
             <h3>Teacher</h3> {{teacher.firstName}} {{teacher.lastName}}
         </div>
@@ -38,7 +39,6 @@
                 </option>
             </select>
             <button (click)="add(teacher)" type="button" class="btn btn-primary">Add</button>
-            <button (click)="back()" type="button" class="btn btn-dark">Back to List</button>
         </div>
 
         <hr>
@@ -60,7 +60,6 @@
                 </option>
             </select>
             <button (click)="addCor(teacher)" type="button" class="btn btn-primary">Add</button>
-            <button (click)="back()" type="button" class="btn btn-dark">Back to List</button>
         </div>
 
         <hr>
@@ -74,7 +73,7 @@
                 <li>{{sub.subjectName}}</li>
             </ul>
         </div>
-        <div><button (click)="back()" type="button" class="btn btn-dark">Back to List</button></div>
-
+        <div class="backbtn"><button (click)="back()" type="button" class="btn btn-dark">Back to List</button></div>
+    </ng-container>
     </div>
 </div>

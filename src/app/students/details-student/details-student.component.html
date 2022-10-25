@@ -1,8 +1,10 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Student</h3> {{student.firstName}} {{student.lastName}} 
+           
+            <h3>Student</h3> <span *ngIf="student">{{student.firstName}} {{student.lastName}}</span>
         </div>
+        <ng-container *ngIf="student">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -49,7 +51,7 @@
             <li>{{sub.subjectName}}</li>  
         </ul>
         </div>
-
+    </ng-container>
     </div>
 </div>
 
