@@ -10,8 +10,11 @@ import { TeacherService } from 'src/app/services/teacher.service';
 })
 export class TlistComponent implements OnInit {
 
-  filterTerm!: string;
   teachers: any;
+  name: string = ''
+  lname: string = ''
+  date1 = new Date().toISOString().slice(0,10)
+  date2 = new Date().toISOString().slice(0,10);
 
 
 
@@ -44,6 +47,24 @@ export class TlistComponent implements OnInit {
     error => {
       alert("The Teacher is already inactive...!!!")
     },
+    )
+  }
+  searchByName(){
+    this.teacherservice.getTeacherByname(this.name.trim()).subscribe({
+      next: (data) => {
+        this.teachers = data;}}
+    )
+  }
+  searchByLastName(){
+    this.teacherservice.getTeacherBylastname(this.lname.trim()).subscribe({
+      next: (data) => {
+        this.teachers = data;}}
+    )
+  }
+  searchByRange(){
+    this.teacherservice.getTeacherByrange(this.date1,this.date2).subscribe({
+      next: (data) => {
+        this.teachers = data;}}
     )
   }
 

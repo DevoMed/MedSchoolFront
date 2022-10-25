@@ -7,7 +7,19 @@
         <div class="card-header">
             <div class="form-group">
                 <input type="text" class="form-control" autofocus
-                placeholder="Search By FirstName,LastName....." [(ngModel)]="filterTerm" />
+                placeholder="Search By First name" 
+                [(ngModel)]="name" (input)="searchByName()"/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" 
+                placeholder="Search By Last name" 
+                [(ngModel)]="lname" (input)="searchByLastName()"/>
+            </div>
+            <P>Search by date range:</P>
+            <div class="date">
+                <input type="date" class="form-control" [(ngModel)]="date1" />
+                <input type="date" class="form-control" [(ngModel)]="date2" />
+                <button (click)="searchByRange()" type="button" class="btn btn-primary">Search</button>
             </div>
         </div>
             <table class="table table-hover">
@@ -21,7 +33,7 @@
                     </tr>
                 </thead>
                 <Tbody>
-                    <tr *ngFor="let student of students | filter: filterTerm" class="text-center">
+                    <tr *ngFor="let student of students ">
                         <td>{{student.firstName}}</td>
                         <td>{{student.lastName}}</td>
                         <td>{{student.dni}}</td>

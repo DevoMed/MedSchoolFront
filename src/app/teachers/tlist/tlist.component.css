@@ -2,14 +2,34 @@ td,th,button{
     text-align: center;
 }
 
-.btn{
+button{
    margin-left: 10px;
 }
 .container{
     margin-left: 10px;
 }
 .form-group{
-    width: 50%;
+    display: inline-block;
+    width: 20%;
+    padding: auto; 
+
+    margin-right: 10px;
+}
+.date{
+    display: inline-flex;
+    float: right;
+    width: 40%;
+    height: 40px;
     padding: auto; 
     margin-left: 10px; 
+}
+
+.card-header{
+    display: inline-flex;
+    width: 100%;
+    padding: auto;
+    margin:auto
+}
+p{
+    margin-top: 8px;
 }

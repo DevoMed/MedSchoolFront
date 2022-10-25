@@ -10,8 +10,11 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class ListComponent implements OnInit {
 
-  filterTerm!: string;
   students: any;
+  name: string = ''
+  lname: string = ''
+  date1 = new Date().toISOString().slice(0,10)
+  date2 = new Date().toISOString().slice(0,10);
 
 
 
@@ -44,6 +47,24 @@ export class ListComponent implements OnInit {
     error => {
       alert("The student is already inactive...!!!")
     },
+    )
+  }
+  searchByName(){
+    this.studentservice.getStudentByname(this.name.trim()).subscribe({
+      next: (data) => {
+        this.students = data;}}
+    )
+  }
+  searchByLastName(){
+    this.studentservice.getStudentBylastname(this.lname.trim()).subscribe({
+      next: (data) => {
+        this.students = data;}}
+    )
+  }
+  searchByRange(){
+    this.studentservice.getStudentByrange(this.date1,this.date2).subscribe({
+      next: (data) => {
+        this.students = data;}}
     )
   }
 
