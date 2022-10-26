@@ -9,4 +9,8 @@ a{
     position:fixed;
     width: 100%;
 }
-
+img{
+    width: 30px;
+    height: 30px;
+   background-color: white;
+}
