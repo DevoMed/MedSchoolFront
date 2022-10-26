@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Teacher } from 'src/app/interfaces/Teacher.interface';
 import { TeacherService } from 'src/app/services/teacher.service';
@@ -10,8 +11,8 @@ import { TeacherService } from 'src/app/services/teacher.service';
 })
 export class TaddComponent implements OnInit {
 
- 
-  constructor(private router: Router, private teacherservice: TeacherService) { }
+
+  constructor(private router: Router, private teacherservice: TeacherService, private snackBar: MatSnackBar) { }
 
   teacher: Teacher = {
     id: '',
@@ -19,11 +20,11 @@ export class TaddComponent implements OnInit {
     lastName: '',
     dni: '',
     birthdayDate: new Date(),
-    departHead:false,
+    departHead: false,
     subjects: [],
-    cordinator:[]
+    cordinator: []
   }
-  
+
   loginForm: any;
 
 
@@ -33,11 +34,21 @@ export class TaddComponent implements OnInit {
   add(teacher: any) {
     this.teacherservice.addTeacher(teacher).subscribe(
       data => {
-        alert("The teacher has been successfully added")
+        this.snackBar.open("The teacher has been successfully added...!!!", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
         this.router.navigate(["./teachers/tlist"]);
       },
       error => {
-        alert("This DNI is already exists...!!!")
+        this.snackBar.open("This DNI is already exists...!!!", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
       },
     )
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Departments, Subject } from 'src/app/interfaces/Subject.interface';
 import { SubjectService } from 'src/app/services/subject.service';
@@ -10,7 +11,7 @@ import { SubjectService } from 'src/app/services/subject.service';
 })
 export class SeditComponent implements OnInit {
 
-  subject:any
+  subject: any
   Departments = [
 
     { id: Departments.SOCIAL_STUDIES },
@@ -24,27 +25,32 @@ export class SeditComponent implements OnInit {
   ]
 
 
-  constructor(private subjectservice:SubjectService, private router:Router) { }
+  constructor(private subjectservice: SubjectService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.edit();
   }
 
-  edit(){
-    let id=localStorage.getItem("id");
+  edit() {
+    let id = localStorage.getItem("id");
     this.subjectservice.getSubjectId(id)
-    .subscribe(data=>{
-      this.subject=data;
-    })
+      .subscribe(data => {
+        this.subject = data;
+      })
 
   }
-  update(subject:Subject){
+  update(subject: Subject) {
     this.subjectservice.updateSubject(subject)
-    .subscribe(data=>{
-      this.subject=data;
-      alert("The subject has been successfully updated...!!!");
-      this.router.navigate(["./subjects/slist"]);
-    })
+      .subscribe(data => {
+        this.subject = data;
+        this.snackBar.open("The subject has been successfully updated...!!!", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
+        this.router.navigate(["./subjects/slist"]);
+      })
   }
 
 }

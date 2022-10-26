@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/interfaces/interfaces';
 import { StudentService } from 'src/app/services/student.service';
+import { MatSnackBar } from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'app-add',
@@ -10,7 +12,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private router: Router, private studentservice: StudentService) { }
+  constructor(private router: Router, private studentservice: StudentService, private snackBar: MatSnackBar) { }
 
   student: Student = {
     id: '',
@@ -21,7 +23,7 @@ export class AddComponent implements OnInit {
     avgGrade: 0.0,
     subject: []
   }
-  
+
   loginForm: any;
 
 
@@ -31,11 +33,21 @@ export class AddComponent implements OnInit {
   add(student: Student) {
     this.studentservice.addStudent(student).subscribe(
       data => {
-        alert("The student has been successfully added")
+        this.snackBar.open("The student has been successfully added", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
         this.router.navigate(["./students/list"]);
       },
       error => {
-        alert("This DNI is already exists...!!!")
+        this.snackBar.open("This DNI is already exists...!!!", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
       },
     )
   }

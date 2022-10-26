@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Teacher } from 'src/app/interfaces/Teacher.interface';
 import { TeacherService } from 'src/app/services/teacher.service';
@@ -18,7 +19,7 @@ export class TlistComponent implements OnInit {
 
 
 
-  constructor(private teacherservice:TeacherService, private router:Router) { }
+  constructor(private teacherservice:TeacherService, private router:Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -41,11 +42,21 @@ export class TlistComponent implements OnInit {
     this.teacherservice.deleteTeacher(teacher)
     .subscribe(data=>{
       this.teachers=this.teachers.filter((s: Teacher)=>s!==teacher);
-      alert("The Teacher has been successfully deleted...!!!");
+      this.snackBar.open("The teacher has been successfully disabled...!!!", "", {
+        panelClass: 'my-custom-snackbar',
+        duration: 3000,
+        horizontalPosition: "center",
+        verticalPosition: "top",
+      });
       this.router.navigate(["./teachers/tlist"]);
     },
     error => {
-      alert("The Teacher is already inactive...!!!")
+      this.snackBar.open("The Teacher is already inactive...!!!", "", {
+        panelClass: 'my-custom-snackbar',
+        duration: 3000,
+        horizontalPosition: "center",
+        verticalPosition: "top",
+      });
     },
     )
   }

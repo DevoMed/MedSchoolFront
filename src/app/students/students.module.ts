@@ -4,7 +4,6 @@ import { StudentsRoutingModule } from './students-routing.module';
 import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -16,12 +15,12 @@ import { SubjectService } from '../services/subject.service';
 
 
 
+
 @NgModule({
   declarations: [
     AddComponent,
     ListComponent,
     EditComponent,
-    HomeComponent,
     DetailsStudentComponent,
    
 
@@ -31,6 +30,7 @@ import { SubjectService } from '../services/subject.service';
     StudentsRoutingModule,
     FormsModule,
     Ng2SearchPipeModule,
+  
     
     
   ],

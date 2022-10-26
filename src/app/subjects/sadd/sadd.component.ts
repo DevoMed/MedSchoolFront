@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Departments, Subject } from 'src/app/interfaces/Subject.interface';
 import { SubjectService } from 'src/app/services/subject.service';
@@ -11,7 +12,7 @@ import { SubjectService } from 'src/app/services/subject.service';
 export class SaddComponent implements OnInit {
 
 
-  constructor(private subjectservice:SubjectService, private router:Router) { }
+  constructor(private subjectservice: SubjectService, private router: Router, private snackBar: MatSnackBar) { }
 
   subject: Subject = {
     id: '',
@@ -41,9 +42,14 @@ export class SaddComponent implements OnInit {
   add(subject: Subject) {
     this.subjectservice.addSubject(subject).subscribe(
       data => {
-        alert("The subject has been successfully added")
+        this.snackBar.open("The subject has been successfully added", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
         this.router.navigate(["./subjects/slist"]);
-      }  
+      }
     )
   }
 

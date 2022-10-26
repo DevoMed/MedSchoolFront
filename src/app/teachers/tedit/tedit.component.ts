@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Teacher } from 'src/app/interfaces/Teacher.interface';
 import { TeacherService } from 'src/app/services/teacher.service';
@@ -10,32 +11,37 @@ import { TeacherService } from 'src/app/services/teacher.service';
 })
 export class TeditComponent implements OnInit {
 
-  teacher:any
+  teacher: any
 
 
-  constructor(private teacherservice:TeacherService, private router:Router) { }
+  constructor(private teacherservice: TeacherService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.Edit();
   }
 
-  Edit(){
-    let id=localStorage.getItem("id");
+  Edit() {
+    let id = localStorage.getItem("id");
     this.teacherservice.getTeacherId(id)
-    .subscribe(data=>{
-      this.teacher=data;
-    })
+      .subscribe(data => {
+        this.teacher = data;
+      })
 
   }
-  update(teacher:Teacher){
+  update(teacher: Teacher) {
     this.teacherservice.updateTeacher(teacher)
-    .subscribe(data=>{
-      this.teacher=data;
-      alert("The teacher has been successfully updated...!!!");
-      this.router.navigate(["./teachers/tlist"]);
-    },err=>{
-      console.log(err)
-    })
+      .subscribe(data => {
+        this.teacher = data;
+        this.snackBar.open("The teacher has been successfully updated...!!!", "", {
+          panelClass: 'my-custom-snackbar',
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
+        this.router.navigate(["./teachers/tlist"]);
+      }, err => {
+        console.log(err)
+      })
   }
 
 }
